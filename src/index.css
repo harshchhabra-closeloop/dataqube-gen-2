@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+}
+
+.bg-green-500-important {
+  @apply bg-green-500 !important;
+}
+
+.bg-yellow-500-important {
+  @apply bg-yellow-500 !important;
+}
+
+.bg-orange-500-important {
+  @apply bg-orange-500 !important;
+}
+
+@layer base {
+  @font-face {
+    src: url('../font/Montserrat-Light.ttf');
+    font-family: Montserrat-Light;
+  }
+  @font-face {
+    src: url('../font/Montserrat-Regular.ttf');
+    font-family: Montserrat-Regular;
+  }
+  @font-face {
+    src: url('../font/Montserrat-Bold.ttf');
+    font-family: Montserrat-Bold;
+  }
+  @font-face {
+    src: url('../font/Montserrat-Black.ttf');
+    font-family: Montserrat-Black;
+  }
+  @font-face {
+    src: url('../font/Larsseit.otf');
+    font-family: Larsseit;
+  }
+  @font-face {
+    src: url('../font/Larsseit-Bold.otf');
+    font-family: Larsseit-Bold;
+  }
+}
