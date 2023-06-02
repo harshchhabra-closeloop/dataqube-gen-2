@@ -17,13 +17,15 @@ const signIn = async (email: string, password: string) => {
   return await response.data.data;
 };
 
-export function useSignIn() {
+export function useSignIn<T extends string>() {
   const {
     mutate: signInMutation,
     isLoading,
     error,
     data,
-  } = useMutation(({ email, password }: Login) => signIn(email, password));
+  } = useMutation<any, any, any, T>(({ email, password }: Login) =>
+    signIn(email, password),
+  );
   return {
     signInMutation,
     isLoading,

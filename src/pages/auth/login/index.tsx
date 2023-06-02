@@ -6,6 +6,11 @@ import { useAuth } from 'src/hooks/useAuth';
 
 import { useSignIn } from './login.services';
 
+type FormValues = {
+  email: string;
+  password: string;
+};
+
 export default function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -13,7 +18,7 @@ export default function Login() {
     register,
     handleSubmit,
     formState: { isDirty, isValid },
-  } = useForm();
+  } = useForm<FormValues>();
   const { signInMutation, isLoading, error, data } = useSignIn();
 
   const onSubmit = (values: { email: string; password: string }) => {

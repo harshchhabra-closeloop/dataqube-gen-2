@@ -7,7 +7,7 @@ import { useAuth } from 'src/hooks/useAuth';
 
 function Dashboard() {
   const { logout } = useAuth();
-  const grids = localStorage.getItem('user');
+  const grids: string = localStorage.getItem('user') || '{}';
   const cubes = JSON.parse(grids).cubes;
   const navigate = useNavigate();
 
@@ -40,8 +40,8 @@ function Dashboard() {
                     <div className="font-bold text-xl mb-2">{name}</div>
                     <p className="text-grey-darker text-base mb-4">
                       Lorem Ipsum is simply dummy text of the printing and typesetting
-                      industry. Lorem Ipsum has been the industry's standard dummy text
-                      ever since the 1500s
+                      industry. Lorem Ipsum has been the industry&apos;s standard dummy
+                      text ever since the 1500s
                     </p>
                     <Button
                       text="Open board"
