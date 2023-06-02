@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useEffect, useRef } from 'react';
 
 import Header from './header';
-import { colCount, getGridContainerLayout, rowCount } from './helper';
+import { getGridContainerLayout } from './helper';
 
 interface Props {
   data: [];
