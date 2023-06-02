@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useEffect, useRef } from 'react';
 
 import Header from './header';
-import { getGridContainerLayout, getGridsLayout } from './helper';
+import { getGridContainerLayout } from './helper';
 
 interface Props {
   data: [];
@@ -18,7 +18,7 @@ interface Props {
 
 export default function Slide({ data, window, subtitle, itemsCount }: Props) {
   const { height, width } = window;
-  const mainRef = useRef(null);
+  const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (mainRef.current) {
@@ -30,7 +30,7 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
     }
   }, [height, width]);
 
-  const inBoundEl = (values) => (
+  const inBoundEl = (values: { value: string; name: string }) => (
     <div className="flex w-full justify-between bg-yellow-400 items-center rounded-md capitalize leading-none font-bold py-1 px-2">
       <div className="text-xs xs:text-xl mlg:text-xs mxl:text-xl xxl:text-2xl">
         {values?.value}
@@ -41,7 +41,7 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
     </div>
   );
 
-  const slideHeaderEl = (v, index) => (
+  const slideHeaderEl = (v: any, index: number) => (
     <div className={'flex justify-between mb-2'}>
       <div className="flex flex-col w-full">
         <h3
@@ -66,7 +66,7 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
     </div>
   );
 
-  const getkpis = (v, key) => {
+  const getkpis = (v: any, key: number) => {
     const { name, value, color } = v;
     return (
       <div
@@ -92,7 +92,7 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
   return (
     <div className="bg-[#F9F9F9] font-montserrat h-screen px-2">
       <Header type={subtitle} />
-      <div ref={mainRef} className="main">
+      <div ref={mainRef as React.RefObject<HTMLDivElement>} className="main">
         <div
           className={`h-full px-3 md:px-4 pb-3 w-full grid gap-4 ${getGridContainerLayout(
             itemsCount,

@@ -6,7 +6,8 @@ import { useWindowSize } from '@hooks';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { A11y, EffectCube, Navigation, Pagination, Scrollbar } from 'swiper';
+// import { A11y, EffectCube, Navigation, Pagination, Scrollbar } from 'swiper';
+import { EffectCube } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { fetchCSRBoardData } from '../boards.services';
@@ -15,9 +16,10 @@ import LoadingSliding from './loader';
 import Slide from './slide';
 
 function CSRBoard() {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef<HTMLElement>(null);
   const search = useLocation().search;
-  const itemsCount = new URLSearchParams(search).get('items_per_page') || 5;
+  const itemsCount: number =
+    Number(new URLSearchParams(search).get('items_per_page')) || 5;
   const [width, height] = useWindowSize();
   const { isLoading, data } = useQuery({
     queryKey: ['csrboard'],
@@ -34,10 +36,11 @@ function CSRBoard() {
     }
   }, [height, width]);
 
-  const chunks = (arr, n) => {
-    const chunks = [];
+  const chunks = (arr: string[], n: number) => {
+    const chunks: any = [];
     for (let i = 0; i < arr?.length; i += n) {
-      chunks.push(arr.slice(i, i + n));
+      const slice: string[] = arr.slice(i, i + n);
+      chunks.push(slice);
     }
     return chunks;
   };
@@ -61,7 +64,10 @@ function CSRBoard() {
   const mtdChunks = chunks(mtd?.items, itemsCount);
   const ytdChunks = chunks(ytd?.items, itemsCount);
   return (
-    <div ref={sliderRef} className="overflow-hidden bg-[#F9F9F9]">
+    <div
+      ref={sliderRef as React.RefObject<HTMLDivElement>}
+      className="overflow-hidden bg-[#F9F9F9]"
+    >
       <Swiper
         effect={'cube'}
         modules={[EffectCube]}

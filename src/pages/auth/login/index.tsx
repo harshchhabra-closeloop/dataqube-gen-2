@@ -16,10 +16,10 @@ export default function Login() {
   } = useForm();
   const { signInMutation, isLoading, error, data } = useSignIn();
 
-  const onSubmit = (data: { email: string; password: string }) => {
-    const { email, password } = data;
+  const onSubmit = (values: { email: string; password: string }) => {
+    const { email, password } = values;
     if (email && password) {
-      signInMutation(data);
+      signInMutation(values);
     }
   };
 

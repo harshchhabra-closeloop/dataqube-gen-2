@@ -26,6 +26,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     'no-empty-function': 'off',
     '@typescript-eslint/no-empty-function': 'error',
+    '@typescript-eslint/no-explicit-any': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
