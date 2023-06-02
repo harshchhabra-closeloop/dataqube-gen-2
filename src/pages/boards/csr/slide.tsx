@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useEffect, useRef } from 'react';
 
 import Header from './header';
-import { getGridContainerLayout } from './helper';
+import { colCount, getGridContainerLayout, rowCount } from './helper';
 
 interface Props {
   data: [];
@@ -100,7 +100,7 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
         >
           {data?.length &&
             data.map((v: any, index: number) => {
-              const { userid, kpis, topKpi } = v;
+              const { userid, kpis, topKpi, user_image } = v;
               return index === 0 || itemsCount <= 4 ? (
                 <Grid key={userid}>
                   {slideHeaderEl(v, index)}
@@ -108,7 +108,11 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
                     <img
                       className=" object-cover aspect-square w-auto h-full object-top"
                       alt=""
-                      src="https://dev.datacube.ai/storage/img/AvatarCSR.png"
+                      src={
+                        user_image
+                          ? `https://dev.datacube.ai/storage/${user_image}`
+                          : `https://dev.datacube.ai/storage/img/AvatarCSR.png`
+                      }
                     />
                   </div>
                   <div className={classNames('flex flex-wrap flex-row overflow-hidden')}>
@@ -126,12 +130,7 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
                   </div>
                 </Grid>
               ) : (
-                <div
-                  key={userid}
-                  className={classNames(
-                    'grid grid-flow-row-dense grid-cols-1 h-full w-full bg-white border border-grey-100 shadow rounded-md py-2 px-2 mlg:py-2 mxl:px-2 mxl:py-2 xxl:py-4 xxl:px-5',
-                  )}
-                >
+                <Grid key={userid}>
                   {slideHeaderEl(v, index)}
                   {inBoundEl(topKpi)}
                   <div
@@ -143,7 +142,11 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
                       <img
                         alt=""
                         className=""
-                        src="https://dev.datacube.ai/storage/img/AvatarCSR.png"
+                        src={
+                          user_image
+                            ? `https://dev.datacube.ai/storage/${user_image}`
+                            : `https://dev.datacube.ai/storage/img/AvatarCSR.png`
+                        }
                       />
                     </div>
                     <div
@@ -157,7 +160,7 @@ export default function Slide({ data, window, subtitle, itemsCount }: Props) {
                         })}
                     </div>
                   </div>
-                </div>
+                </Grid>
               );
             })}
         </div>

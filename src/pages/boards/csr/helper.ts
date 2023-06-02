@@ -1,12 +1,16 @@
 export const getGridContainerLayout = (itemsCount: number) => {
-  if (itemsCount === 5) {
-    return 'grid-rows-2 grid-cols-1 xs:grid-cols-2 mlg:grid-cols-2 mxl:grid-cols-3';
-  } else if (itemsCount === 4) {
-    return 'grid-rows-2 grid-cols-1 xs:grid-cols-2 mlg:grid-cols-2 mxl:grid-cols-4';
-  } else if (itemsCount < 4) {
-    return 'grid-rows-2 grid-cols-1 xs:grid-cols-2 mlg:grid-cols-2 mxl:grid-cols-3';
-  } else {
-    return 'grid-rows-3 grid-cols-1 xs:grid-cols-2 mlg:grid-cols-2 mxl:grid-cols-4';
+  switch (itemsCount) {
+    case 1:
+    case 2:
+      return 'grid-rows-1 grid-cols-1 xs:grid-cols-2 mlg:grid-cols-2 mxl:grid-cols-2';
+    case 3:
+      return 'grid-rows-1 grid-cols-1 xs:grid-cols-1 mlg:grid-cols-3 mxl:grid-cols-3';
+    case 4:
+      return 'grid-rows-1 grid-cols-1 xs:grid-rows-4 xs:grid-cols-2 mlg:grid-rows-4 mlg:grid-cols-2 mxl:grid-cols-4 mxl:grid-rows-2';
+    case 5:
+      return 'grid-rows-1 grid-cols-1 xs:grid-cols-2 xs:grid-rows-2 mlg:grid-cols-2 mlg:grid-rows-3 mxl:grid-cols-3 mxl:grid-rows-2';
+    default:
+      return 'grid-rows-5 grid-cols-1 xs:grid-cols-2 mlg:grid-cols-2 mxl:grid-cols-4';
   }
 };
 

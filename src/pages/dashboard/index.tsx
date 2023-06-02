@@ -1,7 +1,6 @@
 import 'react-querybuilder/dist/query-builder.css';
 
 import { Button } from '@ui-components';
-import { QueryBuilder } from 'react-querybuilder';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from 'src/hooks/useAuth';
 
@@ -29,7 +28,6 @@ function Dashboard() {
           </button>
         </div>
       </nav>
-      <QueryBuilder />
       <section className="bg-grey-lightest py-2">
         <div className="w-full max-w-2xl ml-auto mr-auto mt-8">
           <div className="flex flex-wrap -mx-6 -my-6">
