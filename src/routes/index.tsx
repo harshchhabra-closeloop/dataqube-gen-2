@@ -1,9 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { QueryBuilder } from 'react-querybuilder';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { CSRBoard, Dashboard, Login } from '../pages';
+import { CSRBoard, Dashboard, Login, QueryBuilderComponent } from '../pages';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -31,8 +30,8 @@ const privateRoutes = createBrowserRouter([
     element: <CSRBoard />,
   },
   {
-    path: '/react-query',
-    element: <QueryBuilder />,
+    path: '/query',
+    element: <QueryBuilderComponent />,
   },
 ]);
 
