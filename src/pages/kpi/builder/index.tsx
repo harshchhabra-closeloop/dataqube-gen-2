@@ -19,7 +19,7 @@ function KPIBuilder() {
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
-      if (name === 'data_source') {
+      if (name === 'data_source' && value) {
         resetField('business_object');
       }
     });

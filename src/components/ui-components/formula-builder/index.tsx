@@ -10,7 +10,7 @@ interface Props {
   fields?: any[];
 }
 
-export default function FormulaBuilder({ label = '', value = '', fields = [] }: Props) {
+export default function FormulaBuilder({ label = '', fields = [] }: Props) {
   const [state, setState] = useState<any[]>([]);
 
   const renderContent = (obj, key) => {
