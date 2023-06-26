@@ -29,7 +29,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path="" element={<Login />} />
-
       <Route path="dashboard" element={<Dashboard />} />
       <Route path="dashboard/boards/:board" element={<CSRBoard />} />
       <Route path="query" element={<QueryBuilderComponent />} />
