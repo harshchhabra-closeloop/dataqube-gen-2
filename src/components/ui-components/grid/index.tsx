@@ -12,8 +12,6 @@ interface Props {
 
 function Grid({
   children,
-  xsrowspan = 1,
-  xscolspan = 1,
   mlgcolspan = false,
   mlgrowspan = false,
   mxlcolspan = false,

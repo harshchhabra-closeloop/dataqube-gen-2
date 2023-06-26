@@ -1,4 +1,4 @@
-import { Button, Dropdown } from '@ui-components';
+import { Dropdown } from '@ui-components';
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import FormulaBuilder from 'src/components/ui-components/formula-builder';
@@ -12,16 +12,17 @@ function KPIBuilder() {
     handleSubmit,
     watch,
     control,
-    formState: { errors },
+    // formState: { errors },
     resetField,
   } = useForm();
   const onSubmit = (data) => console.log(data);
 
   useEffect(() => {
-    const subscription = watch((value, { name, type }) => {
+    const subscription = watch((value, { name }) => {
       if (name === 'data_source') {
         resetField('business_object');
       }
+      console.log(value)
     });
     return () => subscription.unsubscribe();
   }, [watch]);
@@ -61,7 +62,7 @@ function KPIBuilder() {
               rules={{
                 required: true,
               }}
-              render={({ field: { onChange, onBlur, value } }) => (
+              render={({ field: { onChange, value } }) => (
                 <Dropdown
                   value={value}
                   label="Data Type"
@@ -76,7 +77,7 @@ function KPIBuilder() {
               rules={{
                 required: true,
               }}
-              render={({ field: { onChange, onBlur, value } }) => (
+              render={({ field: { onChange, value } }) => (
                 <Dropdown
                   value={value}
                   label="Data Source"
@@ -91,7 +92,7 @@ function KPIBuilder() {
               rules={{
                 required: true,
               }}
-              render={({ field: { onChange, onBlur, value } }) => (
+              render={({ field: { onChange, value } }) => (
                 <Dropdown
                   value={value}
                   label="Business Object"
@@ -108,7 +109,7 @@ function KPIBuilder() {
                 rules={{
                   required: true,
                 }}
-                render={({ field: { onChange, onBlur, value } }) => (
+                render={({ field: { onChange, value } }) => (
                   <Dropdown
                     value={value}
                     label="Decimal Precision"
@@ -128,12 +129,12 @@ function KPIBuilder() {
             rules={{
               required: true,
             }}
-            render={({ field: { onChange, onBlur, value } }) => (
+            render={({ field: {  value } }) => (
               <FormulaBuilder
                 value={value}
                 label="Calculation Builder"
                 fields={selectedBusinessObjectsFields}
-                onChange={onChange}
+                // onChange={onChange}
               />
             )}
             name="formula"
