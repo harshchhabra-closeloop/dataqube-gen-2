@@ -4,7 +4,7 @@ import { Controller, useForm } from 'react-hook-form';
 import FormulaBuilder from 'src/components/ui-components/formula-builder';
 import Input from 'src/components/ui-components/input';
 
-import { DATA_SOURCE, DATA_TYPE } from './helper';
+import { BUSINESS_OBJECTS, DATA_SOURCE, DATA_TYPE } from './helper';
 
 function KPIBuilder() {
   const {
@@ -35,6 +35,11 @@ function KPIBuilder() {
   const watchDataSource = watch('data_source', '');
   const selectedBusinessObjects =
     DATA_SOURCE.find((v) => v.value === watchDataSource.value)?.business_objects || [];
+
+  const watchBusinessObject = watch('business_object', '');
+  const selectedBusinessObjectsFields =
+    BUSINESS_OBJECTS.find((v) => v.value === watchBusinessObject.value)?.fields || [];
+
   return (
     <div>
       <section className="bg-white dark:bg-gray-900">
@@ -127,12 +132,13 @@ function KPIBuilder() {
               <FormulaBuilder
                 value={value}
                 label="Calculation Builder"
+                fields={selectedBusinessObjectsFields}
                 onChange={onChange}
               />
             )}
             name="formula"
           />
-          <Button text="Submit" />
+          {/* <Button text="Submit" /> */}
         </form>
       </section>
     </div>

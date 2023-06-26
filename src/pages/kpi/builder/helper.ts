@@ -29,26 +29,110 @@ export const BUSINESS_OBJECTS = [
   {
     label: 'Jobs',
     value: 'jobs',
+    fields: [
+      {
+        label: 'Job ID',
+        value: 'job_id',
+      },
+      {
+        label: 'Job Name',
+        value: 'job_name',
+      },
+      {
+        label: 'Job Category',
+        value: 'job_category',
+      },
+    ],
   },
   {
     label: 'Calls',
     value: 'calls',
+    fields: [
+      {
+        label: 'Calls ID',
+        value: 'calls_id',
+      },
+      {
+        label: 'Calls Name',
+        value: 'calls_name',
+      },
+      {
+        label: 'Calls Category',
+        value: 'calls_category',
+      },
+    ],
   },
   {
     label: 'Sales',
     value: 'sales',
+    fields: [
+      {
+        label: 'Sales ID',
+        value: 'calls_id',
+      },
+      {
+        label: 'Sales Name',
+        value: 'sales_name',
+      },
+      {
+        label: 'Sales Category',
+        value: 'sales_category',
+      },
+    ],
   },
   {
     label: 'Business',
     value: 'business',
+    fields: [
+      {
+        label: 'Business ID',
+        value: 'business_id',
+      },
+      {
+        label: 'Business Name',
+        value: 'business_name',
+      },
+      {
+        label: 'Business Category',
+        value: 'business_category',
+      },
+    ],
   },
   {
     label: 'Units',
     value: 'units',
+    fields: [
+      {
+        label: 'Unit ID',
+        value: 'calls_id',
+      },
+      {
+        label: 'Unit Name',
+        value: 'calls_name',
+      },
+      {
+        label: 'Unit Category',
+        value: 'unit_category',
+      },
+    ],
   },
   {
     label: 'Users',
     value: 'users',
+    fields: [
+      {
+        label: 'User ID',
+        value: 'user_id',
+      },
+      {
+        label: 'User Name',
+        value: 'user_name',
+      },
+      {
+        label: 'User Category',
+        value: 'user_category',
+      },
+    ],
   },
 ];
 

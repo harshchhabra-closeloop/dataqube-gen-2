@@ -8,7 +8,7 @@ interface ValueObjProps {
 }
 
 interface Props {
-  items: ValueObjProps[];
+  items: any[];
   value?: ValueObjProps;
   label?: string;
   onChange?: (value: any) => void;
