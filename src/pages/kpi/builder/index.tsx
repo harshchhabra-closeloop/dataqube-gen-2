@@ -22,7 +22,6 @@ function KPIBuilder() {
       if (name === 'data_source') {
         resetField('business_object');
       }
-      console.log(value)
     });
     return () => subscription.unsubscribe();
   }, [watch]);
