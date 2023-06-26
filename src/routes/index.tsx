@@ -6,8 +6,16 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import Layout from 'src/components/layout';
 
-import { CSRBoard, Dashboard, Login, QueryBuilderComponent } from '../pages';
+import {
+  CSRBoard,
+  Dashboard,
+  KPIBuilder,
+  KPIListing,
+  Login,
+  QueryBuilderComponent,
+} from '../pages';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,9 +29,14 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path="" element={<Login />} />
+
       <Route path="dashboard" element={<Dashboard />} />
       <Route path="dashboard/boards/:board" element={<CSRBoard />} />
       <Route path="query" element={<QueryBuilderComponent />} />
+      <Route path="kpi" element={<Layout />}>
+        <Route path="list" element={<KPIListing />} />
+        <Route path="builder" element={<KPIBuilder />} />
+      </Route>
     </Route>,
   ),
 );

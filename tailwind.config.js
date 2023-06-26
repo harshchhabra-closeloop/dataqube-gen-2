@@ -14,6 +14,12 @@ export default {
     {
       pattern: /grid-rows-./,
     },
+    {
+      pattern: /row-span-./,
+    },
+    {
+      pattern: /col-span-./,
+    },
   ],
   theme: {
     extend: {
